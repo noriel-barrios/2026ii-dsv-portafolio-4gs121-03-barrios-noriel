@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    <!-- file: docs/index.html -->
-    <!--
-      PÁGINA PERSONAL — portada del portafolio
-      ──────────────────────────────────────────────────────────────
-      Si ya hiciste tu perfil en el Laboratorio 1, trae aquí su
-      contenido. Las rutas de esta página ya están ajustadas al
-      portafolio; no copies las del laboratorio, que usaban ../../
-
-      Qué editar:
-        • El <title>, el <link> a tu hoja de estilos y la descripción.
-        • Nombre, tagline y todos los marcadores con la forma {{TEXTO}}.
-        • Las cuatro rutas de la fotografía (src y srcset).
-      Qué NO cambiar:
-        • Estructura (header / aside / main / footer).
-        • El enlace "Mis entregas" (./modulos/index.html).
-        • Rutas a los logos institucionales (./assets/img/).
-
-      Nombres de archivo, si te llamas Juan Pérez:
-        assets/css/about-perez-juan.css
-        assets/img/foto-perez-juan-{160,320,480,640}.webp
-      Borra este comentario cuando termines.
-    -->
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Nombre Apellidos — Perfil</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Noriel Barrios — Perfil</title>
+    <meta name="author" content="Noriel Barrios">
 
     <!-- CSS específico de esta página -->
-    <link rel="stylesheet" href="./assets/css/about-apellidos-nombre.css">
+    <link rel="stylesheet" href="./assets/css/about-barrios-noriel.css" />
 
     <!-- Descripción breve (práctica de metadatos/SEO) -->
     <meta
       name="description"
-      content="Perfil de estudiante — Licenciatura en Desarrollo y Gestión de Software (UTP FISC Veraguas)">
+      content="Perfil de estudiante — Licenciatura en Desarrollo y Gestión de Software (UTP FISC Veraguas)"
+    />
   </head>
   <body>
     <!-- Contenedor principal (layout en Grid definido en el CSS) -->
@@ -51,8 +31,8 @@
           </div>
 
           <!-- EDITA: nombre y tagline -->
-          <h1 class="nombre">Nombre Apellidos</h1>
-          <p class="tagline">Estudiante de Desarrollo de Software · {{GRUPO}}-{{NN}}</p>
+          <h1 class="nombre">Noriel Barrios</h1>
+          <p class="tagline">Estudiante de Desarrollo y Gestión de Software | Futuro desarrollador de software · 4GS121-03</p>
         </div>
 
         <!-- Logos institucionales (no cambiar rutas) -->
@@ -60,11 +40,13 @@
           <img
             class="logo"
             src="./assets/img/logo-utp.svg"
-            alt="Logo UTP">
+            alt="Logo UTP"
+          />
           <img
             class="logo"
             src="./assets/img/logo-fisc.svg"
-            alt="Logo FISC">
+            alt="Logo FISC"
+          />
         </div>
       </header>
 
@@ -72,19 +54,20 @@
       <aside class="sidebar">
         <figure class="perfil">
           <img
-            src="./assets/img/foto-apellidos-nombre-480.webp"
+            src="./assets/img/foto-barrios-noriel-480.webp"
             srcset="
-              ./assets/img/foto-apellidos-nombre-160.webp 160w,
-              ./assets/img/foto-apellidos-nombre-320.webp 320w,
-              ./assets/img/foto-apellidos-nombre-480.webp 480w,
-              ./assets/img/foto-apellidos-nombre-640.webp 640w
+              ./assets/img/foto-barrios-noriel-160.webp 160w,
+              ./assets/img/foto-barrios-noriel-320.webp 320w,
+              ./assets/img/foto-barrios-noriel-480.webp 480w,
+              ./assets/img/foto-barrios-noriel-640.webp 640w
             "
             sizes="(max-width: 700px) 128px, 160px"
-            alt="Nombre Apellidos, estudiante de LDGS UTP FISC Veraguas"
+            alt="Noriel Barrios, estudiante de Desarrollo y Gestión de Software en la UTP, Centro Regional de Veraguas"
             width="160"
             height="160"
             loading="lazy"
-            decoding="async">
+            decoding="async"
+          />
           <figcaption>
             Licenciatura en Desarrollo y Gestión de Software
           </figcaption>
@@ -94,13 +77,13 @@
           <h2>Contacto</h2>
           <ul class="lista-contacto">
             <li>
-              <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+              <a href="mailto:noriel.barrios@utp.ac.pa">Correo institucional</a>
             </li>
             <li>
-              <a target="_blank" rel="noopener noreferrer" href="{{LINKEDIN}}">LinkedIn</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/noriel-barrios-1b987333a">LinkedIn</a>
             </li>
             <li>
-              <a target="_blank" rel="noopener noreferrer" href="{{GITHUB}}">GitHub</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/noriel-barrios">GitHub</a>
             </li>
             <li>
               <a href="./modulos/index.html">Mis entregas del curso</a>
@@ -153,7 +136,17 @@
       <main class="contenido">
         <section class="resumen card">
           <h2>Acerca de mí</h2>
-          <p>{{RESUMEN_BREVE_ELEVATOR_PITCH}}</p>
+          <p>
+            Soy Noriel Barrios, estudiante de la Licenciatura en Desarrollo y
+            Gestión de Software en la Universidad Tecnológica de Panamá,
+            Centro Regional de Veraguas.
+            <br /><br />
+            Me apasionan la programación, la tecnología y el desarrollo de
+            soluciones digitales. Mi objetivo es adquirir experiencia en
+            ingeniería de software, desarrollo de aplicaciones web y bases de
+            datos, creando sistemas innovadores que resuelvan problemas reales
+            y faciliten las actividades cotidianas.
+          </p>
         </section>
 
         <!-- Duplica <article.proyecto> por cada proyecto -->
@@ -162,15 +155,34 @@
           <div class="proyectos-flex">
             <article class="proyecto">
               <header class="proyecto-head">
-                <h3>{{NOMBRE_PROYECTO}}</h3>
+                <h3>tiketgo — Sistema de Boletos Digitales con Código QR</h3>
                 <div class="proyecto-links">
-                  <a target="_blank" rel="noopener noreferrer" href="{{URL_GITHUB}}">Código</a>
-                  <a target="_blank" rel="noopener noreferrer" href="{{URL_DEMO}}">Demo</a>
+                  <a aria-disabled="true" title="Pendiente de publicación">Código</a>
+                  <a aria-disabled="true" title="En desarrollo">Demo</a>
                 </div>
               </header>
-              <p>{{DESCRIPCION_PROYECTO}}</p>
-              <p class="rol"><strong>Rol:</strong> {{ROL}}</p>
-              <p class="tech"><strong>Tecnologías:</strong> {{TECNOLOGIAS}}</p>
+              <p><strong>Código:</strong> Pendiente de publicación<br />
+                <strong>Demo:</strong> En desarrollo</p>
+              <p><strong>Descripción del proyecto:</strong></p>
+              <p>
+                tiketgo es un proyecto académico de Ingeniería de Software
+                Aplicada I que consiste en una aplicación web responsiva para
+                digitalizar la administración y el canje de boletos de
+                alimentación en instituciones educativas.
+              </p>
+              <p>
+                El sistema permitirá a los estudiantes consultar sus saldos
+                digitales, generar códigos QR temporales y revisar su historial
+                de transacciones. El personal de cafetería podrá validar los
+                códigos y confirmar los canjes, mientras que los administradores
+                podrán gestionar estudiantes, asignar boletos y consultar reportes.
+              </p>
+              <p>
+                El objetivo principal es reemplazar los boletos físicos por una
+                solución digital más organizada, segura y eficiente.
+              </p>
+              <p class="rol"><strong>Rol:</strong> Análisis de requisitos, diseño y desarrollo del proyecto académico.</p>
+              <p class="tech"><strong>Tecnologías:</strong> Java, Spring Boot, MySQL, aplicación web responsiva, códigos QR dinámicos y API REST.</p>
             </article>
           </div>
         </section>
@@ -180,9 +192,17 @@
           <ul class="timeline">
             <li>
               <div class="item">
-                <h3>{{CARGO}} — {{ORGANIZACION}}</h3>
-                <span class="meta">{{FECHA}}</span>
-                <p>{{RESPONSABILIDADES_LOGROS}}</p>
+                <h3>Desarrollo de proyectos académicos — Universidad Tecnológica de Panamá</h3>
+                <span class="meta">2026 — Actualidad</span>
+                <p>Participación en el análisis y diseño de soluciones informáticas mediante proyectos universitarios.</p>
+                <p><strong>Responsabilidades y actividades:</strong></p>
+                <ul class="listado-simple">
+                  <li>Análisis de problemas y necesidades de los usuarios.</li>
+                  <li>Identificación de requisitos funcionales.</li>
+                  <li>Diseño de soluciones mediante ingeniería de software.</li>
+                  <li>Planificación de aplicaciones web.</li>
+                  <li>Diseño de procesos relacionados con bases de datos.</li>
+                </ul>
               </div>
             </li>
           </ul>
@@ -193,7 +213,9 @@
           <ul class="listado-simple">
             <li>
               <strong>Licenciatura en Desarrollo y Gestión de Software</strong>
-              — UTP, Centro Regional de Veraguas ({{ANIO_INICIO}}–{{ANIO_FIN}})
+              <br />Universidad Tecnológica de Panamá (UTP)
+              <br />Centro Regional de Veraguas
+              <br /><strong>Estado:</strong> En curso.
             </li>
           </ul>
         </section>
@@ -201,15 +223,18 @@
         <section class="certificaciones card">
           <h2>Certificaciones y Cursos</h2>
           <ul class="listado-simple">
-            <li>{{CERTIFICACION_1}}</li>
-            <li>{{CURSO_1}}</li>
+            <li>Ingeniería de Software Aplicada I — UTP.</li>
+            <li>Formación universitaria en desarrollo y gestión de software.</li>
+            <li>Certificaciones adicionales pendientes de incorporar.</li>
           </ul>
         </section>
 
         <section class="extra card">
           <h2>Logros · Artículos · Intereses</h2>
           <ul class="listado-simple">
-            <li>{{LOGRO_O_ARTICULO}}</li>
+            <li><strong>Proyecto destacado:</strong> Diseño y documentación de tiketgo, sistema digital de boletos mediante códigos QR.</li>
+            <li><strong>Intereses profesionales:</strong> Desarrollo de software, programación, inteligencia artificial, aplicaciones web y bases de datos.</li>
+            <li><strong>Objetivo profesional:</strong> Convertirme en un desarrollador de software capaz de crear soluciones tecnológicas innovadoras, seguras y eficientes.</li>
           </ul>
         </section>
       </main>
