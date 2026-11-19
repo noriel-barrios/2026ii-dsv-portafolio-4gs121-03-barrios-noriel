@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self';
+                 style-src 'self' https://fonts.googleapis.com;
+                 font-src https://fonts.gstatic.com;
+                 img-src 'self';
+                 media-src 'self';
+                 object-src 'self';
+                 frame-src 'self' https://www.openstreetmap.org;
+                 base-uri 'self';
+                 form-action 'self'">
+
+  <meta name="description"
+        content="Informe de revisión de seguridad y calidad del sitio de la Clínica Veterinaria ConSentidos.">
+  <meta name="author" content="Noriel Barrios">
+  <title>Informe de revisión | Clínica Veterinaria ConSentidos</title>
+  <link rel="icon" href="assets/img/logo-consentidos.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/consentidos.css">
+</head>
+
+<body>
+  <a href="#contenido">Saltar al contenido</a>
+
+  <header id="inicio">
+    <img src="assets/img/logo-consentidos.svg" alt="" width="64" height="64">
+
+    <hgroup>
+      <h1>Informe de revisión</h1>
+      <p>Seguridad y calidad del sitio</p>
+    </hgroup>
+
+    <p>
+      Noriel Barrios<br>
+      4GS121-03
+    </p>
+  </header>
+
+  <nav aria-label="Navegación del sitio">
+    <h2>El sitio</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="componentes.html">Guía de componentes</a></li>
+      <li><a href="tarifas.html">Tarifas</a></li>
+      <li><a href="cita.html">Solicitar cita</a></li>
+      <li><a href="paginas/test.html">Página de prueba</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido">
+
+    <p>
+      Revisión del sitio completo, hecha el
+      <time datetime="2026-11-19">19 de noviembre de 2026</time>. Se
+      incluyeron en la revisión las seis páginas del sitio y este informe.
+    </p>
+
+    <section id="csp">
+      <h2>Política de seguridad de contenidos</h2>
+
+      <p>
+
+        La política parte de <code>default-src 'self'</code>. Para conservar la tipografía y el mapa, permite Google Fonts en las directivas de estilos y fuentes y OpenStreetMap en la de marcos. Los demás recursos del sitio se cargan desde su propio origen.
+      </p>
+
+      <div tabindex="0" role="region" aria-labelledby="cap-csp">
+        <table>
+          <caption id="cap-csp">Directivas de la política y por qué están</caption>
+          <thead>
+            <tr>
+              <th scope="col">Directiva</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Por qué</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>default-src</code></th>
+              <td><code>'self'</code></td>
+              <td>Regla por defecto: solo recursos del propio sitio.</td>
+            </tr>
+
+            <tr>
+              <th scope="row"><code>script-src</code></th>
+              <td><code>'self'</code></td>
+              <td>Carga componentes.js y cita.js desde el propio origen y excluye el código en línea.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>style-src</code></th>
+              <td><code>'self' https://fonts.googleapis.com</code></td>
+              <td>Admite la hoja de estilos local y la hoja de Google Fonts.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>font-src</code></th>
+              <td><code>https://fonts.gstatic.com</code></td>
+              <td>Admite los archivos de tipografía de Google Fonts.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>img-src</code></th>
+              <td><code>'self'</code></td>
+              <td>Permite el logotipo, la ilustración y la portada del video.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>media-src</code></th>
+              <td><code>'self'</code></td>
+              <td>Permite el audio y el video incluidos en el sitio.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>object-src</code></th>
+              <td><code>'self'</code></td>
+              <td>Permite el PDF de vacunación del propio sitio.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>frame-src</code></th>
+              <td><code>'self' https://www.openstreetmap.org</code></td>
+              <td>Permite la página de prueba interna y el mapa incrustado.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>base-uri</code></th>
+              <td><code>'self'</code></td>
+              <td>Limita a este origen la URL de una eventual etiqueta base.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>form-action</code></th>
+              <td><code>'self'</code></td>
+              <td>Limita al propio origen el destino del formulario.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+
+        <code>frame-ancestors</code> se aplica mediante una cabecera HTTP. En este sitio alojado en GitHub Pages no se configura esa cabecera, así que la directiva no está activa. <code>frame-src</code> controla los marcos que carga el sitio.
+      </p>
+    </section>
+
+    <section id="verificacion">
+      <h2>Lista de verificación</h2>
+
+      <div tabindex="0" role="region" aria-labelledby="cap-verificacion">
+        <table>
+          <caption id="cap-verificacion">Comprobaciones en las siete páginas</caption>
+          <thead>
+            <tr>
+              <th scope="col">Comprobación</th>
+              <th scope="col">Resultado</th>
+              <th scope="col">Observación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Validan sin errores en validator.w3.org</th>
+              <td>Cumple</td>
+              <td>El Nu HTML Checker reportó cero errores en las siete páginas al revisar los archivos.</td>
+            </tr>
+            <tr>
+              <th scope="row">Un solo <code>h1</code> y jerarquía sin saltos</th>
+              <td>Cumple</td>
+              <td>Cada página tiene un h1. La demostración de encabezados de la guía continúa del h4 al h6.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>alt</code> en las imágenes y <code>title</code> en los <code>iframe</code></th>
+              <td>Cumple</td>
+              <td>El logo decorativo usa alt vacío y la ilustración de Luna tiene una descripción. Los dos marcos tienen título y el PDF tiene un nombre accesible.</td>
+            </tr>
+            <tr>
+              <th scope="row">Cada control con <code>label</code> y <code>name</code></th>
+              <td>Cumple</td>
+              <td>Los campos visibles del formulario tienen su etiqueta y su nombre. El campo oculto solo indica el origen del formulario.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tablas con <code>caption</code> y <code>scope</code></th>
+              <td>Cumple</td>
+              <td>Cada tabla de datos tiene un título y encabezados con scope. La tabla por especie también relaciona sus celdas mediante headers.</td>
+            </tr>
+            <tr>
+              <th scope="row">Enlaces a otra pestaña con <code>rel="noopener noreferrer"</code></th>
+              <td>Cumple</td>
+              <td>Los enlaces que abren otra pestaña incluyen noopener y noreferrer. El mapa declara sandbox y referrerpolicy.</td>
+            </tr>
+            <tr>
+              <th scope="row">Recorrido completo con el teclado y foco visible</th>
+              <td>Cumple en local</td>
+              <td>El primer foco llega a Saltar al contenido. Se comprobó la ida y vuelta con Tab y Mayús+Tab y se revisó el foco durante el recorrido.</td>
+            </tr>
+            <tr>
+              <th scope="row">Nombres en minúsculas y rutas que funcionan publicadas</th>
+              <td>Rutas correctas en local</td>
+              <td>Las rutas de archivos y anclas se comprobaron en los documentos. La verificación por web corresponde a la publicación.</td>
+            </tr>
+            <tr>
+              <th scope="row">Consola sin errores de la política</th>
+              <td>Sin bloqueos en local</td>
+              <td>Chrome no reportó errores de consola ni bloqueos de la política durante la comprobación de las siete páginas en el servidor local.</td>
+            </tr>
+            <tr>
+              <th scope="row">Accesibilidad en Lighthouse</th>
+              <td>100 de 100 en cada página</td>
+              <td>Lighthouse 13.6.0, accesibilidad de escritorio en local. Inicio, Servicios, Componentes, Tarifas, Solicitar cita, Página de prueba e Informe obtuvieron 100 puntos cada una.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="validacion-cliente">
+      <h2>La validación del navegador no protege</h2>
+
+      <p>
+
+        Al pulsar Solicitar la cita con el formulario vacío, el navegador detuvo el envío y llevó el foco al nombre del propietario. Esta validación ayuda a detectar errores de entrada. En un servicio real, el servidor debe volver a comprobar los datos recibidos antes de aceptarlos. Este sitio estático no recibe solicitudes de cita.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <address>
+      <strong>Clínica Veterinaria ConSentidos</strong><br>
+      Avenida Central, Santiago de Veraguas, Panamá<br>
+      <a href="tel:+50799800000">+507 998-0000</a> |
+      <a href="mailto:citas@consentidos.example">citas@consentidos.example</a>
+    </address>
+
+    <p>
+      Última actualización:
+      <time datetime="2026-11-19">19 de noviembre de 2026</time>.
+    </p>
+
+    <p><a href="#inicio">Volver arriba</a></p>
+
+    <p>
+      <small>
+        &copy; 2026 Clínica Veterinaria ConSentidos. Proyecto académico del
+        curso Desarrollo de Software V, Universidad Tecnológica de Panamá,
+        Centro Regional de Veraguas. Los datos de contacto son ficticios.
+      </small>
+    </p>
+  </footer>
+</body>
+
+</html>
