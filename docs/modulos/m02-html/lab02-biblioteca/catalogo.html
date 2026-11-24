@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self'; style-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="description" content="Consulta el catálogo de ejemplares disponibles y los préstamos activos de la Biblioteca Universitaria.">
+  <meta name="author" content="Victorio Cibala">
+  <title>Catálogo y préstamos | Biblioteca Universitaria</title>
+  <link rel="icon" href="assets/img/logo-biblioteca.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/biblioteca-base.css">
+</head>
+<body id="arriba">
+  <a href="#contenido">Saltar al contenido</a>
+
+  <header>
+    <img src="assets/img/logo-biblioteca.svg" alt="">
+    <hgroup>
+      <h1>Catálogo y préstamos</h1>
+      <p>Biblioteca Universitaria</p>
+    </hgroup>
+    <p>
+      Equipo 03 · Grupo 4GS121<br>
+      Noriel Barrios · 4GS121-03<br>
+      Victorio Cibala · 4GS121-04<br>
+      Hector Uribe · 4GS121-15
+    </p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Préstamo a domicilio</a></li>
+      <li><a href="catalogo.html" aria-current="page">Catálogo y préstamos</a></li>
+      <li><a href="prestamo.html">Solicitar un préstamo</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido">
+    <section id="catalogo">
+      <h2>Colección General</h2>
+      <div tabindex="0" role="region" aria-labelledby="cap-catalogo">
+        <table>
+          <caption id="cap-catalogo">Títulos de la Colección General y sus ejemplares</caption>
+          <colgroup>
+            <col>
+            <col>
+            <col>
+          </colgroup>
+          <colgroup>
+            <col>
+          </colgroup>
+          <colgroup>
+            <col>
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th id="col-titulo" scope="col" rowspan="2">Título</th>
+              <th id="col-autor" scope="col" rowspan="2">Autor</th>
+              <th id="col-anio" scope="col" rowspan="2">Año</th>
+              <th id="ej-sala" scope="col" rowspan="2">En sala (e.1)</th>
+              <th id="ej-dom" scope="colgroup" colspan="2">A domicilio (e.2 en adelante)</th>
+            </tr>
+            <tr>
+              <th id="ej-dom-total" scope="col" headers="ej-dom">Ejemplares</th>
+              <th id="ej-dom-disp" scope="col" headers="ej-dom">Disponibles</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th id="row-clean-code" scope="row" headers="col-titulo"><cite>Clean Code</cite></th>
+              <td headers="row-clean-code col-autor">Robert C. Martin</td>
+              <td headers="row-clean-code col-anio">2008</td>
+              <td headers="row-clean-code ej-sala">1</td>
+              <td headers="row-clean-code ej-dom ej-dom-total">3</td>
+              <td headers="row-clean-code ej-dom ej-dom-disp">2</td>
+            </tr>
+            <tr>
+              <th id="row-eloquent-js" scope="row" headers="col-titulo"><cite>Eloquent JavaScript</cite></th>
+              <td headers="row-eloquent-js col-autor">Marijn Haverbeke</td>
+              <td headers="row-eloquent-js col-anio">2024</td>
+              <td headers="row-eloquent-js ej-sala">1</td>
+              <td headers="row-eloquent-js ej-dom ej-dom-total">2</td>
+              <td headers="row-eloquent-js ej-dom ej-dom-disp">0</td>
+            </tr>
+            <tr>
+              <th id="row-html-css" scope="row" headers="col-titulo"><cite>HTML and CSS: Design and Build Websites</cite></th>
+              <td headers="row-html-css col-autor">Jon Duckett</td>
+              <td headers="row-html-css col-anio">2011</td>
+              <td headers="row-html-css ej-sala">1</td>
+              <td headers="row-html-css ej-dom ej-dom-total">4</td>
+              <td headers="row-html-css ej-dom ej-dom-disp">3</td>
+            </tr>
+            <tr>
+              <th id="row-bd" scope="row" headers="col-titulo"><cite>Fundamentos de bases de datos</cite></th>
+              <td headers="row-bd col-autor">Abraham Silberschatz</td>
+              <td headers="row-bd col-anio">2014</td>
+              <td headers="row-bd ej-sala">1</td>
+              <td headers="row-bd ej-dom ej-dom-total">2</td>
+              <td headers="row-bd ej-dom ej-dom-disp">1</td>
+            </tr>
+            <tr>
+              <th id="row-ing-soft" scope="row" headers="col-titulo"><cite>Ingeniería del software</cite></th>
+              <td headers="row-ing-soft col-autor">Ian Sommerville</td>
+              <td headers="row-ing-soft col-anio">2011</td>
+              <td headers="row-ing-soft ej-sala">1</td>
+              <td headers="row-ing-soft ej-dom ej-dom-total">3</td>
+              <td headers="row-ing-soft ej-dom ej-dom-disp">1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="mis-prestamos">
+      <h2>Mis préstamos</h2>
+      <div tabindex="0" role="region" aria-labelledby="cap-prestamos">
+        <table aria-describedby="nota-prestamos">
+          <caption id="cap-prestamos">Préstamos activos de la cuenta</caption>
+          <thead>
+            <tr>
+              <th scope="col">Título</th>
+              <th scope="col">Ejemplar</th>
+              <th scope="col">Prestado el</th>
+              <th scope="col">Devolver el</th>
+              <th scope="col">Renovaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><cite>Clean Code</cite></th>
+              <td>e.2</td>
+              <td><time datetime="2026-11-03">3 nov. 2026</time></td>
+              <td><time datetime="2026-11-24">24 nov. 2026</time></td>
+              <td>1 de 3</td>
+            </tr>
+            <tr>
+              <th scope="row"><cite>Fundamentos de bases de datos</cite></th>
+              <td>e.3</td>
+              <td><time datetime="2026-10-20">20 oct. 2026</time></td>
+              <td><time datetime="2026-11-27">27 nov. 2026</time></td>
+              <td>3 de 3</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="4">Préstamos activos</th>
+              <td>2</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p id="nota-prestamos">
+        Cada préstamo se renueva hasta tres veces, siempre que la cuenta no tenga adeudos ni multas. El segundo ya no admite más renovaciones.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <address>Biblioteca Universitaria · Avenida de la Biblioteca, Santiago, Veraguas, Panamá</address>
+    <p>Última actualización: <time datetime="2026-11-22">22 de noviembre de 2026</time></p>
+    <p>Los datos del catálogo, los préstamos y el contacto son ficticios.</p>
+    <p><a href="#arriba">Volver arriba</a></p>
+  </footer>
+</body>
+</html>

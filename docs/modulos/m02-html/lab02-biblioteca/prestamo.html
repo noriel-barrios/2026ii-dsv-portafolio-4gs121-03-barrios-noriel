@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self'; style-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="description" content="Formulario para solicitar el préstamo a domicilio de un libro de la Colección General de la Biblioteca Universitaria.">
+  <meta name="author" content="Hector Uribe">
+  <title>Solicitar un préstamo | Biblioteca Universitaria</title>
+  <link rel="icon" href="assets/img/logo-biblioteca.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/biblioteca-base.css">
+</head>
+<body id="arriba">
+  <a href="#contenido">Saltar al contenido</a>
+<header>
+  <img src="assets/img/logo-biblioteca.svg" alt="">
+  <hgroup>
+    <h1>Solicitar un préstamo</h1>
+    <p>Biblioteca Universitaria</p>
+  </hgroup>
+  <p>
+  Equipo 03 · Grupo 4GS121<br>
+  Noriel Barrios · 4GS121-03<br>
+  Victorio Cibala · 4GS121-04<br>
+  Hector Uribe · 4GS121-15
+  </p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Préstamo a domicilio</a></li>
+    <li><a href="catalogo.html">Catálogo y préstamos</a></li>
+    <li><a href="prestamo.html" aria-current="page">Solicitar un préstamo</a></li>
+  </ul>
+</nav>
+  <main id="contenido">
+    <h2>Solicitud de préstamo</h2>
+    <p>Los campos marcados con * son obligatorios. El ejemplar e.1 de cada título se consulta en sala; se presta del e.2 en adelante.</p>
+
+    <form action="/api/prestamos" method="post">
+
+      <fieldset>
+        <legend>Datos del usuario</legend>
+
+        <label for="nombre">Nombre completo *</label>
+        <input id="nombre" name="nombre" type="text" required autocomplete="name">
+
+        <label for="codigo">Código de usuario *</label>
+        <input id="codigo" name="codigo" type="text" required
+               inputmode="numeric" pattern="[0-9]{8}"
+               title="Ocho dígitos, sin espacios ni letras"
+               minlength="8" maxlength="8"
+               aria-describedby="ayuda-datos">
+
+        <label for="correo">Correo institucional *</label>
+        <input id="correo" name="correo" type="email" required
+               pattern=".+@utp\.ac\.pa"
+               title="Un correo institucional que termine en @utp.ac.pa"
+               autocomplete="email"
+               aria-describedby="ayuda-datos">
+
+        <p id="ayuda-datos">El código tiene ocho dígitos. El correo debe terminar en @utp.ac.pa.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>El libro</legend>
+
+        <label for="titulo">Título *</label>
+        <input id="titulo" name="titulo" type="text" list="titulos" required
+               autocomplete="off">
+        <datalist id="titulos">
+          <option value="Clean Code"></option>
+          <option value="Eloquent JavaScript"></option>
+          <option value="HTML and CSS: Design and Build Websites"></option>
+          <option value="Fundamentos de bases de datos"></option>
+          <option value="Ingeniería del software"></option>
+        </datalist>
+
+        <fieldset>
+          <legend>Ejemplar *</legend>
+          <input id="ej-1" name="ejemplar" type="radio" value="e1" disabled
+                 aria-describedby="ayuda-ej1">
+          <label for="ej-1">e.1</label>
+          <input id="ej-2" name="ejemplar" type="radio" value="e2" required>
+          <label for="ej-2">e.2</label>
+          <input id="ej-3" name="ejemplar" type="radio" value="e3">
+          <label for="ej-3">e.3</label>
+          <p id="ayuda-ej1">El e.1 no se presta: se reserva para consulta en sala.</p>
+        </fieldset>
+
+        <label for="retiro">Fecha de retiro *</label>
+        <input id="retiro" name="retiro" type="date" required min="2026-11-22">
+      </fieldset>
+
+      <fieldset>
+        <legend>Condiciones</legend>
+
+        <input id="sin-adeudos" name="sin_adeudos" type="checkbox" required>
+        <label for="sin-adeudos">Declaro que no tengo adeudos ni multas. *</label>
+        <br>
+        <input id="reglamento" name="reglamento" type="checkbox" required>
+        <label for="reglamento">Acepto las <a href="index.html#renovaciones">condiciones de renovación</a>. *</label>
+
+        <label for="observaciones">Observaciones (opcional)</label>
+        <textarea id="observaciones" name="observaciones" rows="4" cols="40"
+                  maxlength="300" aria-describedby="ayuda-obs"></textarea>
+        <p id="ayuda-obs">Máximo 300 caracteres.</p>
+      </fieldset>
+
+      <button type="submit">Enviar solicitud</button>
+    </form>
+  </main>
+
+  <footer>
+    <address>Biblioteca Universitaria · Avenida de la Biblioteca, Santiago, Veraguas, Panamá</address>
+    <p>Última actualización: <time datetime="2026-11-22">22 de noviembre de 2026</time></p>
+    <p>Los datos del catálogo, los préstamos y el contacto son ficticios.</p>
+    <p><a href="#arriba">Volver arriba</a></p>
+  </footer>
+</body>
+</html>
