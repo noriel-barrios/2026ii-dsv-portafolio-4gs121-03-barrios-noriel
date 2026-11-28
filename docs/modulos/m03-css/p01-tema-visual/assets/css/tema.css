@@ -1,0 +1,153 @@
+/* 0. Importación de los iconos sólidos de Font Awesome. */
+@import url("../vendor/fontawesome/css/solid.min.css");
+
+/* 1. Bitter variable se sirve desde el mismo sitio que la hoja. */
+@font-face {
+  font-family: "Bitter";
+  src: url("../fonts/Bitter-VF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Ciruela y dorado en dos esquemas. Los comentarios indican el
+   contraste mínimo en los fondos donde se usa cada color de texto. */
+:root {
+  --tinta: #291E2D;
+  --marino: #633765; /* Mín. 7.51:1 sobre --marino-claro. */
+  --marino-claro: #F1E3F2;
+  --salvia: #305C49; /* Mín. 6.57:1 sobre --salvia-claro. */
+  --salvia-claro: #E5F1E8;
+  --ambar: #E9B866;
+  --rojo: #A4243C; /* Mín. 7.25:1 sobre --superficie. */
+  --fondo: #FBF6EF;
+  --superficie: #FFFFFF;
+  --borde: #DCCDDD;
+  --borde-control: #806D83;
+  --texto: #291E2D; /* Mín. 12.91:1 sobre --marino-claro. */
+  --texto-suave: #5C4C60; /* Mín. 6.40:1 sobre --marino-claro. */
+  --codigo-fondo: #322239;
+  --codigo-texto: #F5E9F7; /* Mín. 12.56:1 sobre --codigo-fondo. */
+  --cabecera-fondo: #392344;
+  --cabecera-texto: #FFF7ED; /* Mín. 13.21:1 sobre --cabecera-fondo. */
+  --cabecera-suave: #E9D7ED; /* Mín. 10.29:1 sobre --cabecera-fondo. */
+  --foco: #633765;
+  --visitado: #89416A; /* Mín. 5.62:1 sobre --marino-claro. */
+  --fuente-titulos: "Bitter", Georgia, "Times New Roman", serif;
+  --ancho-lectura: 65ch;
+  --transicion: 0.2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tinta: #291E2D;
+    --marino: #ECC0F3; /* Mín. 7.45:1 sobre --marino-claro. */
+    --marino-claro: #482F50;
+    --salvia: #A6D6BA; /* Mín. 7.49:1 sobre --salvia-claro. */
+    --salvia-claro: #253A31;
+    --ambar: #E9B866;
+    --rojo: #FFA8B7; /* Mín. 8.56:1 sobre --superficie. */
+    --fondo: #1E1723;
+    --superficie: #2A2030;
+    --borde: #503E56;
+    --borde-control: #AE98B3;
+    --texto: #F8EDF9; /* Mín. 10.27:1 sobre --marino-claro. */
+    --texto-suave: #D6C2DA; /* Mín. 7.00:1 sobre --marino-claro. */
+    --codigo-fondo: #18121D;
+    --codigo-texto: #F5E9F7; /* Mín. 15.64:1 sobre --codigo-fondo. */
+    --cabecera-fondo: #24182B;
+    --cabecera-texto: #FFF7ED; /* Mín. 15.94:1 sobre --cabecera-fondo. */
+    --cabecera-suave: #E9D7ED; /* Mín. 12.42:1 sobre --cabecera-fondo. */
+    --foco: #E9B866;
+    --visitado: #F1ACD2; /* Mín. 6.44:1 sobre --marino-claro. */
+  }
+}
+
+/* 3. Bitter en los títulos y Atkinson Hyperlegible en el texto corrido. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+body > header h1 {
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+section > h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+  border-bottom-color: var(--ambar);
+}
+
+body {
+  line-height: 1.65;
+}
+
+main p,
+main li {
+  max-width: var(--ancho-lectura);
+  text-wrap: pretty;
+}
+
+/* 4. Orden LVHA en el contenido. El foco visible viene de la hoja base. */
+main a:link {
+  color: var(--marino);
+}
+
+main a:visited {
+  color: var(--visitado);
+}
+
+main a:hover {
+  text-decoration-thickness: 0.2em;
+}
+
+main a:active {
+  color: var(--texto);
+}
+
+body > nav a {
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+body > nav a:hover {
+  background-color: var(--marino-claro);
+  color: var(--marino);
+}
+
+button,
+input[type="submit"] {
+  transition: filter var(--transicion), transform var(--transicion);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body > nav a,
+  button,
+  input[type="submit"] {
+    transition: none;
+  }
+}
+
+/* 5. Iconos decorativos con alternativa vacía y destinos relativos. */
+body > nav a::before,
+body > footer address a::before {
+  display: inline-block;
+  font: var(--fa-font-solid);
+  width: 1.25em;
+  margin-right: 0.5em;
+  text-align: center;
+  color: var(--marino);
+}
+
+body > footer address a::before {
+  color: var(--ambar);
+}
+
+body > nav a[href$="index.html"]::before { content: "\f015" / ""; }
+body > nav a[href$="servicios.html"]::before { content: "\f0f1" / ""; }
+body > nav a[href$="componentes.html"]::before { content: "\f518" / ""; }
+body > nav a[href$="tarifas.html"]::before { content: "\f02c" / ""; }
+body > nav a[href$="cita.html"]::before { content: "\f274" / ""; }
+body > nav a[href$="test.html"]::before { content: "\f0c3" / ""; }
+body > footer address a[href^="tel:"]::before { content: "\f095" / ""; }
+body > footer address a[href^="mailto:"]::before { content: "\f0e0" / ""; }
